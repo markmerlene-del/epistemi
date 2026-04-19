@@ -54,22 +54,32 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" style={{ textDecoration: "none" }}>
           <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-            <div
-              style={{
-                width: 36,
-                height: 36,
-                borderRadius: 10,
-                background: "linear-gradient(135deg, #7c3aed, #2563eb)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontSize: 18,
-                fontWeight: 800,
-                color: "#fff",
-              }}
-            >
-              I
-            </div>
+            <svg width="64" height="64" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="logoGrad" x1="0" y1="0" x2="52" y2="52" gradientUnits="userSpaceOnUse">
+                  <stop stopColor="#c084fc"/>
+                  <stop offset="1" stopColor="#3b82f6"/>
+                </linearGradient>
+                <radialGradient id="glowGrad" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stopColor="#7c3aed" stopOpacity="0.4"/>
+                  <stop offset="100%" stopColor="#7c3aed" stopOpacity="0"/>
+                </radialGradient>
+              </defs>
+              {/* Glow background */}
+              <circle cx="26" cy="26" r="26" fill="url(#glowGrad)"/>
+              {/* Dark inner circle */}
+              <circle cx="26" cy="26" r="22" fill="#0d0820"/>
+              {/* Outer border ring */}
+              <circle cx="26" cy="26" r="21" stroke="url(#logoGrad)" strokeWidth="1.5" fill="none"/>
+              {/* Rotating arc - top 270 degrees */}
+              <path d="M26 7 A19 19 0 1 1 9 34" stroke="url(#logoGrad)" strokeWidth="3" strokeLinecap="round" fill="none"/>
+              {/* Arrowhead at end of arc */}
+              <path d="M7 28 L9 35 L15 31.5" stroke="#c084fc" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+              {/* Lightning bolt center */}
+              <path d="M29 14 L21 27 L26 27 L23 38 L31 25 L26 25 Z" fill="url(#logoGrad)"/>
+              {/* Small glowing dot at arc start */}
+              <circle cx="26" cy="7" r="2.5" fill="#c084fc"/>
+            </svg>
             <span
               style={{
                 fontSize: 20,

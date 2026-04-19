@@ -90,27 +90,29 @@ export default function ContactPage() {
             </a>
 
             {/* Team */}
-            <div
-              style={{
-                display: "flex", alignItems: "center", gap: 20, marginBottom: 40,
-              }}
-            >
-              <div
-                style={{
-                  width: 56, height: 56, borderRadius: 14,
-                  background: "linear-gradient(135deg, #059669, #0891b2)",
-                  display: "flex", alignItems: "center", justifyContent: "center",
-                  fontSize: 22, flexShrink: 0,
-                }}
-              >
-                👥
+            <div style={{ marginBottom: 40 }}>
+              <div style={{ color: "rgba(255,255,255,0.4)", fontSize: 12, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 16 }}>
+                Leadership
               </div>
-              <div>
-                <div style={{ color: "rgba(255,255,255,0.4)", fontSize: 12, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 4 }}>
-                  Leadership
+              <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+                  <div style={{ width: 48, height: 48, borderRadius: 12, background: "linear-gradient(135deg, #7c3aed, #2563eb)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 16, fontWeight: 800, color: "#fff", flexShrink: 0 }}>
+                    MM
+                  </div>
+                  <div>
+                    <div style={{ color: "#fff", fontSize: 15, fontWeight: 600 }}>Mark Merlene Sr.</div>
+                    <div style={{ color: "rgba(255,255,255,0.5)", fontSize: 13 }}>Co-Founder & CEO</div>
+                  </div>
                 </div>
-                <div style={{ color: "#fff", fontSize: 16, fontWeight: 600 }}>Mark & David Merlene</div>
-                <div style={{ color: "rgba(255,255,255,0.5)", fontSize: 13 }}>Co-Founders</div>
+                <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+                  <div style={{ width: 48, height: 48, borderRadius: 12, background: "linear-gradient(135deg, #2563eb, #0891b2)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 16, fontWeight: 800, color: "#fff", flexShrink: 0 }}>
+                    DJ
+                  </div>
+                  <div>
+                    <div style={{ color: "#fff", fontSize: 15, fontWeight: 600 }}>David Merlene Jr.</div>
+                    <div style={{ color: "rgba(255,255,255,0.5)", fontSize: 13 }}>Co-Founder & CTO</div>
+                  </div>
+                </div>
               </div>
             </div>
 

@@ -2,17 +2,17 @@ import Link from "next/link";
 
 const team = [
   {
-    name: "Mark Merlene",
+    name: "Mark Merlene Sr.",
     role: "Co-Founder & CEO",
     desc: "Visionary leader with deep expertise in AI strategy and business transformation. Mark drives Epistemi's mission to make artificial intelligence accessible and impactful for every business.",
     initials: "MM",
     color: "linear-gradient(135deg, #7c3aed, #2563eb)",
   },
   {
-    name: "David Merlene",
+    name: "David Merlene Jr.",
     role: "Co-Founder & CTO",
     desc: "Technical architect and AI innovator. David leads the development of cutting-edge AI solutions, ensuring every product is built with precision, scalability, and real-world impact.",
-    initials: "DM",
+    initials: "DJ",
     color: "linear-gradient(135deg, #2563eb, #0891b2)",
   },
   {
