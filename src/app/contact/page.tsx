@@ -6,12 +6,25 @@ export default function ContactPage() {
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  const [error, setError] = useState("");
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    await new Promise((r) => setTimeout(r, 1000));
-    setSent(true);
-    setLoading(false);
+    setError("");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) throw new Error("Failed");
+      setSent(true);
+    } catch {
+      setError("Something went wrong. Please try again or call us directly.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -224,6 +237,9 @@ export default function ContactPage() {
                     />
                   </div>
 
+                  {error && (
+                    <p style={{ color: "#f87171", fontSize: 14, margin: 0 }}>{error}</p>
+                  )}
                   <button type="submit" className="btn-primary" disabled={loading} style={{ width: "100%", opacity: loading ? 0.7 : 1 }}>
                     {loading ? "Sending..." : "Send Message"}
                   </button>
