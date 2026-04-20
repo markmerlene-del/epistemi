@@ -12,7 +12,7 @@ export async function POST(request: NextRequest) {
 
   try {
     await sgMail.send({
-      from: "mark.merlene@gmail.com",
+      from: "contact@epistemiai.com",
       to: "mark.merlene@gmail.com",
       replyTo: email,
       subject: `New Contact: ${name}${company ? ` (${company})` : ""}`,
