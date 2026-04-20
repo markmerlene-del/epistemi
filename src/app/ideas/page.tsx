@@ -53,12 +53,25 @@ export default function IdeasPage() {
 
   const update = (field: string, value: string) => setForm((f) => ({ ...f, [field]: value }));
 
+  const [error, setError] = useState("");
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    await new Promise((r) => setTimeout(r, 1200));
-    setSubmitted(true);
-    setLoading(false);
+    setError("");
+    try {
+      const res = await fetch("/api/ideas", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) throw new Error("Failed");
+      setSubmitted(true);
+    } catch {
+      setError("Something went wrong. Please try again or call us directly.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const totalSteps = 3;
@@ -400,9 +413,12 @@ export default function IdeasPage() {
                   Next Step →
                 </button>
               ) : (
-                <button type="submit" className="btn-primary" disabled={loading} style={{ opacity: loading ? 0.7 : 1 }}>
-                  {loading ? "Submitting..." : "🚀 Submit My Idea"}
-                </button>
+                <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 8 }}>
+                  {error && <p style={{ color: "#f87171", fontSize: 14, margin: 0 }}>{error}</p>}
+                  <button type="submit" className="btn-primary" disabled={loading} style={{ opacity: loading ? 0.7 : 1 }}>
+                    {loading ? "Submitting..." : "🚀 Submit My Idea"}
+                  </button>
+                </div>
               )}
             </div>
           </form>
